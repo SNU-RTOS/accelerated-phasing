@@ -1,0 +1,82 @@
+{
+  "method": "per-input bounded production phase/job probe; N-specific setup and multiplicative full-call correction",
+  "formula": "setup_N + factor_N * probe_ns * D/probe_phases * (H/T_first)/probe_jobs",
+  "correction_by_N": {
+    "3": {
+      "setup_ns": 396.0,
+      "factor": 1.0032191452045183,
+      "training_calls": 20,
+      "ratio_range": [
+        0.9504008477699963,
+        1.2111411208642808
+      ]
+    },
+    "4": {
+      "setup_ns": 520.5,
+      "factor": 1.0058434018634588,
+      "training_calls": 24,
+      "ratio_range": [
+        0.9214500575517302,
+        1.222740190457197
+      ]
+    },
+    "5": {
+      "setup_ns": 437.0,
+      "factor": 1.0139858576431227,
+      "training_calls": 24,
+      "ratio_range": [
+        0.9608489594065527,
+        1.5436531292917401
+      ]
+    },
+    "6": {
+      "setup_ns": 636.0,
+      "factor": 1.0660150044918284,
+      "training_calls": 22,
+      "ratio_range": [
+        0.984943093386713,
+        1.8425405226596097
+      ]
+    },
+    "7": {
+      "setup_ns": 687.5,
+      "factor": 1.0230171681809526,
+      "training_calls": 19,
+      "ratio_range": [
+        0.9790423411265946,
+        1.3519851131965825
+      ]
+    },
+    "8": {
+      "setup_ns": 500,
+      "factor": 1.0309368707509539,
+      "training_calls": 15,
+      "ratio_range": [
+        0.9762595973522767,
+        1.4058010671774523
+      ]
+    }
+  },
+  "heldout_metrics": {
+    "calls": 135,
+    "median_absolute_relative_error": 0.04071936927726319,
+    "p90_absolute_relative_error": 0.20389443836271032,
+    "max_underprediction_factor": 2.3267201346930624,
+    "actual_over_predicted_range": [
+      0.6801272162274745,
+      2.3267201346930624
+    ]
+  },
+  "job_cap": 10000,
+  "probe_repetitions": 5,
+  "large_block_repetitions": 3,
+  "large_block_checks": 40,
+  "purpose": "preparation_prediction_only",
+  "limitations": "Large phase spaces use bounded prefix blocks; job-capped excluded strata require linear extrapolation. Scenario range is empirical, not a guaranteed bound.",
+  "N6_large_block_validation_calls": 144,
+  "longer_heldout_calls": 16,
+  "N6_large_block_ratio_range": [
+    0.9681989689573682,
+    1.432982131425013
+  ]
+}

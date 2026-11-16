@@ -1,0 +1,6 @@
+instance_id,name,periods_ms,optimal_latency_ms,zero_latency_ms,worst_latency_ms,optimal_phases_ms,worst_phases_ms
+1,AEBS,"[10,50,10,50]",170,210,237,"[0,0,0,10]","[0,19,8,37]"
+2,Camera-based Control,"[1000,2000,40]",5040,5040,6078,"[0,0,0]","[0,1999,38]"
+3,Brake-by-Wire,"[20,30,40,50,60]",320,360,396,"[0,0,10,0,0]","[0,9,18,27,36]"
+4,LiDAR-based Control,"[33,400,15,15,5]",908,908,932,"[0,0,0,0,0]","[0,65,9,8,2]"
+5,Pilot Request Handling,"[40,60,100,100,100,60,40]",660,720,994,"[20,40,0,0,0,0,0]","[0,19,98,97,96,15,34]"
