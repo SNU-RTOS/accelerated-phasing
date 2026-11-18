@@ -1,6 +1,6 @@
 # Final Per-CEC Results
 
-These results use the [fixed inputs](../Inputs/README.md). The key for `runtime.csv` and `phase_vector_counts.csv` is `(workload, N, instance_id, method)`; the key for `application_latency.csv` is `instance_id`. Workload names are `max_harmonic`, `xy_hyperperiod`, `randomly_sampled`, and `application`.
+These results use the [fixed inputs](../Inputs/README.md). The key for `runtime.csv` and `phase_vector_counts.csv` is `(workload, N, instance_id, method)`; the key for `application_latency.csv` is `instance_id`. Workload keys are `semi_harmonic`, `xy_hyperperiod`, `randomly_sampled`, and `application`.
 
 | method | Program entry point (relative to the repository root) |
 | --- | --- |
@@ -23,7 +23,7 @@ These results use the [fixed inputs](../Inputs/README.md). The key for `runtime.
 | Method | Synthetic workloads | Applications |
 | --- | --- | --- |
 | All four Proposed configurations | All three workloads, N=3–8 | All five |
-| Wang’26 | Max-harmonic and `(x,y)`-hyperperiod, N=3–5; randomly sampled, N=3–8 | All five |
-| Günzel’25 | Max-harmonic, N=3–8 | AEBS and Camera-based Control |
+| Wang’26 | Semi-harmonic and `(x,y)`-hyperperiod, N=3–5; randomly sampled, N=3–8 | All five |
+| Günzel’25 | Semi-harmonic, N=3–8 | AEBS and Camera-based Control |
 
 Missing timing rows indicate unmeasured or inapplicable cases, not zero execution times. Wang's stage predictions and measurement decisions are listed in the [prediction model table](../Protocols/Prediction_Model/README.md). Günzel is applied only when its period conditions hold.

@@ -22,9 +22,11 @@ Each of the three synthetic CSVs contains 500 distinct ordered CECs for each N=3
 
 | Workload | Generation rule and seed for length N |
 | --- | --- |
-| Max-harmonic | Draw each period independently and uniformly from `{1,2,5,10,20,50,100,200,1000}`. Use seed `20261006+N`, except N=8 uses `20261015`. Includes `(2,5)`-max-harmonic CECs. |
+| Semi-harmonic | Draw each period independently and uniformly from `{1,2,5,10,20,50,100,200,1000}`. Use seed `20261006+N`, except N=8 uses `20261015`. Includes `(2,5)`-max-harmonic CECs. |
 | `(x,y)`-hyperperiod | Draw x uniformly from 3–20, and y uniformly from the first ten integers greater than x that are coprime to x. Draw q uniformly from `1,...,floor(500/(10*y))` and set s=10q. Start with `ys,xs`; draw the remaining periods with replacement from the list consisting of `[ys,xs]` followed by the positive divisors of `xys` smaller than `xs`, in ascending order. Shuffle the completed vector. H=xys and the maximum period is <=500. Use seed `20261007+N`. |
 | Randomly sampled | Draw each integer period t independently with replacement from 2–100, with probability proportional to `1/t`. Use seed `20261008+N`. |
+
+The semi-harmonic workload comprises max-harmonic and `(2,5)`-max-harmonic CECs. The inputs are provided in `semi_harmonic.csv`.
 
 ## Regenerating Inputs
 

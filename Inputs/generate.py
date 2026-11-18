@@ -20,7 +20,7 @@ REAL_WORLD = (
     ('LiDAR-based Control', (33, 400, 15, 15, 5)),
     ('Pilot Request Handling', (40, 60, 100, 100, 100, 60, 40)),
 )
-def max_harmonic(rng, length):
+def semi_harmonic(rng, length):
     return tuple(rng.choice(ENGINE_PERIODS) for _ in range(length))
 
 def xy_hyperperiod(rng, length):
@@ -44,7 +44,7 @@ def randomly_sampled(rng, length):
     return tuple(rng.choices(RANDOM_PERIODS, weights=RANDOM_WEIGHTS, k=length))
 
 WORKLOADS = (
-    ('max_harmonic', 20261006, max_harmonic),
+    ('semi_harmonic', 20261006, semi_harmonic),
     ('xy_hyperperiod', 20261007, xy_hyperperiod),
     ('randomly_sampled', 20261008, randomly_sampled),
 )
@@ -52,7 +52,7 @@ WORKLOADS = (
 def generate(base_seed, draw):
     rows = []
     for length in LENGTHS:
-        seed = base_seed + length + (1 if draw is max_harmonic and length == 8 else 0)
+        seed = base_seed + length + (1 if draw is semi_harmonic and length == 8 else 0)
         rng, seen = random.Random(seed), set()
         while len(seen) < SAMPLES_PER_LENGTH:
             periods = draw(rng, length)

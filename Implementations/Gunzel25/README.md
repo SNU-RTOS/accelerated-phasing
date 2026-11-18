@@ -21,5 +21,5 @@ Günzel’25 accepts positive integer periods. Inputs may be rejected if an inpu
 
 For inputs that are not max-harmonic, the CLI checks the `(2,k)`-max-harmonic condition. If that condition also fails, it rejects the input with `status: "error"` and exit code 3.
 
-The procedures and per-case results for comparing the phases and latencies returned by the authors' Python implementation and this C++ implementation on all 3,000 CECs in the fixed max-harmonic workload and the two applicable application-derived CECs are provided in [Validation/](../../Validation/).
+The procedures and per-case results for comparing the phases and latencies returned by the authors' Python implementation and this C++ implementation on all 3,000 CECs in the fixed semi-harmonic workload and the two applicable application-derived CECs are provided in [Validation/](../../Validation/).
 

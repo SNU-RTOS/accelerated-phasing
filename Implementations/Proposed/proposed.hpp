@@ -18,8 +18,8 @@
 // Input contract: N>=3, positive integer periods, and values whose intermediate
 // endpoint, hyperperiod and latency arithmetic fits in int64_t. The caller
 // is responsible for validating this arithmetic range.
-// Ablations only: DISABLE_SINGLETON_OPT disables both single/path SA;
-//                DISABLE_LBP disables child/state lower-bound pruning.
+// Ablations only: DISABLE_SINGLETON_OPT disables both step-level SA and path-level SA;
+//                DISABLE_LBP disables both child-level and state-level LBP.
 #ifndef ENABLE_COUNTS
 #define ENABLE_COUNTS 0
 #endif
@@ -90,7 +90,7 @@ public:
             l.M=static_cast<std::size_t>(h/T_[p]);
         }
         // [F5 L02] B_N=0 by initialization; accumulate B backward.
-        // B is also required for exact path SA with LBP disabled.
+        // B is also required for exact path-level SA with LBP disabled.
         for (std::size_t i=levels_.size()-1;i>0;--i)
             levels_[i-1].B=levels_[i].B+(2*T_[levels_[i].sigma]-levels_[i].g);
 #ifndef DISABLE_SINGLETON_OPT
@@ -140,8 +140,8 @@ private:
 #endif
         auto& l=levels_[d];
 #ifndef DISABLE_SINGLETON_OPT
-        // [F5 L10-L12 BEGIN: path SA]
-        // [F5 L10] All remaining extensions satisfy the singleton condition.
+        // [F5 L10-L12 BEGIN: path-level SA]
+        // [F5 L10] All remaining extensions satisfy the divisibility condition.
         if (l.path) {
             const Time completed_latency=L_d+l.B;
 #if ENABLE_COUNTS
@@ -180,7 +180,7 @@ private:
 #else
         const bool use_singleton=false;
 #endif
-        // [F5 L16] Exact single-SA latency; independent of the L15 phase assignment.
+        // [F5 L16] Exact step-level SA latency; independent of the L15 phase assignment.
         const Time singleton_L_prime=use_singleton ? L_d+growth : 0;
         l.endpoint_residues.resize(use_singleton ? 1 : l.M);
         if (use_singleton) {
@@ -257,7 +257,7 @@ private:
                     }
                 }
             };
-            // [F5 L22] A complete candidate needs no child endpoint state.
+            // [F5 L22] A leaf needs no child endpoint state.
             if (d+2==levels_.size()) {
 #if ENABLE_COUNTS
                 ++stats_.evaluated_leaves;
@@ -276,7 +276,7 @@ private:
                 }
             }
 #ifndef DISABLE_LBP
-            // [F5 L24] State LBP after descendant updates, with the latest L_star_.
+            // [F5 L24] State-level LBP after descendant updates, with the latest L_star_.
             if (L_d+l.B==L_star_) break;
 #endif
         }

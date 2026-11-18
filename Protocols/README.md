@@ -35,7 +35,7 @@ Each additional traversal starts a new process and visits the relevant CEC subse
 - Synthetic median and P99 values are computed from the 500 representative times in each method/workload/N group. P99 is the 495th sorted value.
 - Median and P99 speedups are ratios of the corresponding group statistics, computed before rounding.
 - Synthetic ablation results are geometric means of the 500 matched per-CEC variant/Base time ratios. Base has both SA and LBP disabled and denotes the manuscript's “Proposed without SA and LBP.”
-- Proposed's evaluated phase vector count includes candidates rejected by child-level LBP after terminal latency evaluation, as well as path-SA completions. Partial assignments are excluded. This count differs from generated or visited nodes and from total computational work. SA preserves this count, while LBP can reduce it.
+- Proposed's evaluated phase vector count includes complete phase vectors rejected by child-level LBP after their exact latency has been computed, as well as path-level SA completions. Partial assignments are excluded. This count differs from generated or visited nodes and from total computational work. SA preserves this count, while LBP can reduce it.
 - Application latency comparisons use optimal, zero, and worst phase vectors on a 1 ms integer phase grid.
 
 ## Measurement Exclusions

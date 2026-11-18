@@ -25,10 +25,10 @@ For each synthetic workload/N stage, the prediction is the sum of one predicted 
 | Workload | N | Predicted sum for one call per CEC (s) | Measured |
 | --- | --- | ---: | --- |
 | Application-derived | mixed | 1,792.347912 | True |
-| Max-harmonic | 3 | 0.051094 | True |
-| Max-harmonic | 4 | 18.633936 | True |
-| Max-harmonic | 5 | 928.832991 | True |
-| Max-harmonic | 6 | 225,823.551681 | False |
+| Semi-harmonic | 3 | 0.051094 | True |
+| Semi-harmonic | 4 | 18.633936 | True |
+| Semi-harmonic | 5 | 928.832991 | True |
+| Semi-harmonic | 6 | 225,823.551681 | False |
 | `(x,y)`-hyperperiod | 3 | 0.062910 | True |
 | `(x,y)`-hyperperiod | 4 | 8.670589 | True |
 | `(x,y)`-hyperperiod | 5 | 908.018431 | True |

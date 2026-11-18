@@ -32,7 +32,9 @@ The references are Günzel and Becker, *Optimal Task Phasing for End-To-End Late
 
 We imported the original `OptimalPhasing.py` together with `Task.py`, `Time.py`, and `DPT_Offset.py`, and directly called `optimalPhasingMaxHarm` or `optimalPhasing2kMaxHarm` according to the original applicability conditions. Python dependencies were `drs 2.0.0`, `networkx 3.3`, `numpy 2.4.6`, and `scipy 1.17.1`.
 
-[upstream_comparison.csv](Gunzel25/upstream_comparison.csv) contains comparisons on all 3,000 [fixed max-harmonic workload inputs](../Inputs/max_harmonic.csv) and the two applicable application inputs, AEBS and Camera-based Control. The synthetic inputs comprise 2,877 max-harmonic cases and 123 `(2,k)`-max-harmonic cases. **Returned phases and latencies agree between the authors' Python and our C++ for all 3,002 inputs.**
+[upstream_comparison.csv](Gunzel25/upstream_comparison.csv) contains comparisons on all 3,000 [fixed semi-harmonic workload inputs](../Inputs/semi_harmonic.csv) and the two applicable application inputs, AEBS and Camera-based Control. The synthetic inputs comprise 2,877 max-harmonic cases and 123 `(2,k)`-max-harmonic cases. **Returned phases and latencies agree between the authors' Python and our C++ for all 3,002 inputs.**
+
+In `upstream_comparison.csv`, `applicable_case` identifies the mathematical class: `max_harmonic` or `two_k_max_harmonic`.
 
 Millisecond inputs were multiplied by 1,000 for the original Python microsecond interface, and returned values were divided by 1,000. Exact divisibility by 1,000 was checked. The original cumulative phases were compared directly, without reducing them modulo their task periods.
 
